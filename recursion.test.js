@@ -2,14 +2,40 @@
 
 function division(number, dividedBy) {
     // Write you logic here.
-    if (number< dividedBy) {
+    if (dividedBy === 0) {
         return 0;
       }
-      return 1 + division(number - dividedBy, dividedBy);
+      let negativeResult = false;
+      if (number < 0) {
+       number = -number;
+        negativeResult = !negativeResult;
+      }
+      if (dividedBy < 0) {
+        dividedBy = -dividedBy;
+        negativeResult = !negativeResult;
+      }
+      let dividendCopy = number;
+      let quotientDigits = 0;
+      while (dividendCopy >= dividedBy) {
+        dividendCopy = Math.floor(dividendCopy / 10);
+        quotientDigits++;
+      }
+      let quotient = 0;
+  let remainder = number;
+  for (let i = quotientDigits; i >= 0; i--) {
+    let digit = 0;
+    while (remainder >= dividedBy * 10 ** i) {
+      remainder -= dividedBy * 10 ** i;
+      digit++;
     }
-    
- 
+    quotient += digit * 10 ** i;
+  }
+  if (negativeResult) {
+    quotient = -quotient;
+  }
 
+  return quotient;
+}
 /* Write a function that implement Math.pow(x,n) but using recursion
 Example:
 pow(2,4) = 16

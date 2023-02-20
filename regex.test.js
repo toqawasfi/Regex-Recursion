@@ -7,11 +7,11 @@ characters (no numbers and symbols) and it should end with capital A else return
 
 function capitalA(s){
     // Add your logic.
-    const regex = /^[a-zA-Z]*A$/; 
-    return regex.test(s);
-  }
-  
-
+    const regex = /^[a-zA-Z\s]*A$/;
+    
+    let result =regex.test(s);
+    return result;
+}
 
 
 /* Write a function that take a string and return true if the the sting is following the emails pattern
@@ -19,10 +19,12 @@ which end with io (example@example.io) */
 
 function ioEmail(email){
     // Add your logic.
-    const regex = /^[\w-\.]+@[\w-]+\.(io)$/; 
-  return regex.test(email);
    
-}
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+\.io$/;
+  return regex.test(email);
+  }
+   
+
 
 /* You have a text that contain image names with their extention you need to write a function to 
 find all images in that text and return their names and extention in an array 
