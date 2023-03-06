@@ -20,8 +20,8 @@ which end with io (example@example.io) */
 function ioEmail(email){
     // Add your logic.
    
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+\.io$/;
-  return regex.test(email);
+    let regex =/^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9.-]+\.io$/;
+    return regex.test(email);
   }
    
 
